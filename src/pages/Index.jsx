@@ -5,8 +5,11 @@ import { FaArrowLeft, FaArrowRight, FaPlay, FaPause } from "react-icons/fa";
 const Index = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [isRotating, setIsRotating] = useState(false);
+  const [currentLaptopImage, setCurrentLaptopImage] = useState(0);
 
   const images = ["https://images.unsplash.com/photo-1658071372366-8a658d8a9835?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHwzZCUyMHJlbmRlciUyMG9mJTIwYSUyMG1vZGVybiUyMGNoYWlyfGVufDB8fHx8MTcxMTQ4NTgyMHww&ixlib=rb-4.0.3&q=80&w=1080", "https://images.unsplash.com/photo-1653242370243-5f7ca54b00db?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHwzZCUyMHJlbmRlciUyMG9mJTIwYSUyMHN0eWxpc2glMjBzb2ZhfGVufDB8fHx8MTcxMTQ4NTgyMHww&ixlib=rb-4.0.3&q=80&w=1080", "https://images.unsplash.com/photo-1645919462224-24da49b3d361?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHwzZCUyMHJlbmRlciUyMG9mJTIwYSUyMG1pbmltYWxpc3QlMjB0YWJsZXxlbnwwfHx8fDE3MTE0ODU4MjF8MA&ixlib=rb-4.0.3&q=80&w=1080", "https://images.unsplash.com/photo-1672930796101-4e02286b9bc1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NjAwMjR8MHwxfHNlYXJjaHwxfHxvcGVuJTIwbGFwdG9wJTIwb24lMjBkZXNrJTIwd2l0aCUyMHBsYW50JTIwYW5kJTIwcGFwZXJzfGVufDB8fHx8MTY4MDIyNjk4NXww&ixlib=rb-4.0.3&q=80&w=1080"];
+
+  const laptopImages = ["https://example.com/laptop-image-1.jpg", "https://example.com/laptop-image-2.jpg", "https://example.com/laptop-image-3.jpg"];
 
   const rotateImage = () => {
     setCurrentImage((prevImage) => (prevImage + 1) % images.length);
@@ -43,6 +46,7 @@ const Index = () => {
               {isRotating ? "Pause" : "Auto Rotate"}
             </Button>
             <IconButton aria-label="Next" icon={<FaArrowRight />} onClick={rotateImage} />
+            <Button onClick={() => setCurrentLaptopImage((prevImage) => (prevImage + 1) % laptopImages.length)}>Change Laptop Screen</Button>
           </Stack>
         </Box>
       </Stack>
